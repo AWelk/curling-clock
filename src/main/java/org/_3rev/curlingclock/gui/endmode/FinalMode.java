@@ -36,14 +36,17 @@ public class FinalMode extends SubPanel implements TimerMode {
         endMessage.setup();
     }
 
-    public void draw() {
+    public boolean draw() {
         if (totalSec < 0) {
             endMessage.draw();
         } else {
             countdownClock.draw(totalSec);
-            totalSec--;
             bar.draw(PApplet.map((duration - totalSec), 0, duration, 0, 100));
         }
+        totalSec--;
+
+        // Switch to clock after 10 minutes
+        return totalSec < -600;
     }
 
     @Override

@@ -31,13 +31,16 @@ public class TimerPanel extends SubPanel {
         endMessage.setup();
     }
 
-    public void draw() {
+    public boolean draw() {
         if (duration >= 0) {
             countdownClock.draw(duration);
-            duration--;
         } else {
             endMessage.draw();
         }
+        duration--;
+
+        // Switch to clock after 10 minutes
+        return duration < -600;
     }
 
     public void setTime(int seconds) {

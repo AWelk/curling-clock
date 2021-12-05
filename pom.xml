@@ -14,14 +14,10 @@
     <name>curling-clock</name>
     <description>curling-clock</description>
     <properties>
-        <java.version>16</java.version>
+        <java.version>8</java.version>
         <processing.version>3.3.6</processing.version>
     </properties>
-    <dependencyManagement>
-        <dependencies>
 
-        </dependencies>
-    </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -36,13 +32,6 @@
             <groupId>org.processing</groupId>
             <artifactId>core</artifactId>
             <version>${processing.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.processing</groupId>
-            <artifactId>processing-complete</artifactId>
-            <version>${processing.version}</version>
-            <type>pom</type>
         </dependency>
 
 

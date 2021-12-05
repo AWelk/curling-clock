@@ -23,8 +23,8 @@ public class EndTimerPanel extends SubPanel {
         finalMode.setup();
     }
 
-    public void draw() {
-        activeMode.draw();
+    public boolean draw() {
+        return activeMode.draw();
     }
 
     private void start(int totalSeconds) {

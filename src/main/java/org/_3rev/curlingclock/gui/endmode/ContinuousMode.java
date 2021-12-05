@@ -31,11 +31,14 @@ public class ContinuousMode extends SubPanel implements TimerMode {
         bar.setup();
     }
 
-    public void draw() {
+    public boolean draw() {
         continuousTimer.draw(timerSeconds);
         timerSeconds--;
         bar.draw(PApplet.map((duration - progressBarSeconds), 0, duration, 0, 100));
         progressBarSeconds--;
+
+        // Switch to clock after 30 minutes
+        return progressBarSeconds < -1800;
     }
 
     @Override

@@ -7,6 +7,8 @@ import org._3rev.curlingclock.gui.timer.TimerPanel;
 import org.springframework.stereotype.Component;
 import processing.core.PApplet;
 
+import static org._3rev.curlingclock.gui.MainPanelMode.CLOCK;
+
 @Component
 public class MainPanel extends PApplet {
 
@@ -15,11 +17,11 @@ public class MainPanel extends PApplet {
     private ClockPanel clockPanel;
     private TimerPanel timerPanel;
 
-    private MainPanelMode activeMode = MainPanelMode.CLOCK;
+    private MainPanelMode activeMode = CLOCK;
 
     public void settings() {
-        size(800, 600);
-//        fullScreen();
+//        size(800, 600);
+        fullScreen();
         controller.setClock(this);
     }
 
@@ -38,10 +40,22 @@ public class MainPanel extends PApplet {
     public void draw() {
         background(0);
 
+        boolean switchToClock = false;
+
         switch (activeMode) {
-            case ENDTIMER -> endTimerPanel.draw();
-            case TIMER -> timerPanel.draw();
-            default -> clockPanel.draw();
+            case ENDTIMER:
+                switchToClock = endTimerPanel.draw();
+                break;
+            case TIMER:
+                switchToClock = timerPanel.draw();
+                break;
+            default:
+                clockPanel.draw();
+                break;
+        }
+
+        if (switchToClock && activeMode != CLOCK) {
+            activeMode = CLOCK;
         }
     }
 
@@ -56,7 +70,7 @@ public class MainPanel extends PApplet {
     }
 
     public void clock() {
-        activeMode = MainPanelMode.CLOCK;
+        activeMode = CLOCK;
     }
 
     public void timer(int totalSeconds) {

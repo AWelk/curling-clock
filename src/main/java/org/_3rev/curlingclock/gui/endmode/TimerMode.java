@@ -4,5 +4,5 @@ public interface TimerMode {
 
     void setTime(int seconds);
 
-    void draw();
+    boolean draw();
 }
