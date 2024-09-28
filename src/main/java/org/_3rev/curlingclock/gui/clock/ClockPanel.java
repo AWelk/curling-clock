@@ -32,7 +32,7 @@ public class ClockPanel extends SubPanel {
         if (h == 0) {
             h = 12;
             ampm = "am";
-        } else if (h > 11) {
+        } else if (h > 12) {
             h = h - 12;
             ampm = "pm";
         } else {
