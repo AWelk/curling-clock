@@ -16,7 +16,7 @@ public class EndBlock extends SubPanel {
     @Override
     public void setup() {
         fitText(end);
-        setTextAlign(PConstants.CENTER, PConstants.BOTTOM);
+        setTextAlign(PConstants.CENTER, PConstants.CENTER);
     }
 
     void draw(float percentFilled) {
@@ -31,6 +31,6 @@ public class EndBlock extends SubPanel {
         parent.rect(x1 + width / 10, y1 + height / 10, x2 - width / 10, y2 - height / 10);
 
         parent.fill(255, 0, 0);
-        text(end, centerX, bottom);
+        text(end, centerX, centerY);
     }
 }
