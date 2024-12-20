@@ -27,6 +27,7 @@ public class MainPanel extends PApplet {
 
     public void setup() {
         frameRate(1);
+        noCursor();
         endTimerPanel = new EndTimerPanel(this);
         endTimerPanel.setup();
 
