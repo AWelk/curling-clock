@@ -102,16 +102,12 @@ public class MainPanel extends PApplet {
     private boolean isTimeToForceTimer() {
         int day = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
 
-        boolean timeToForceTimer = isMondayLeague(day) || isTuesdayOrThursdayLeague(day);
+        boolean timeToForceTimer = isMondayTuesdayOrThursdayLeague(day);
 
         return timeToForceTimer && activeMode == CLOCK;
     }
 
-    private boolean isMondayLeague(int day) {
-        return day == Calendar.MONDAY && LocalTime.now().isAfter(LocalTime.parse("19:35:00")) && LocalTime.now().isBefore(LocalTime.parse("19:35:05"));
-    }
-
-    private boolean isTuesdayOrThursdayLeague(int day) {
-        return (day == Calendar.TUESDAY || day == Calendar.THURSDAY) && LocalTime.now().isAfter(LocalTime.parse("20:20:00")) && LocalTime.now().isBefore(LocalTime.parse("20:20:05"));
+    private boolean isMondayTuesdayOrThursdayLeague(int day) {
+        return (day == Calendar.TUESDAY || day == Calendar.THURSDAY) && LocalTime.now().isAfter(LocalTime.parse("19:35:00")) && LocalTime.now().isBefore(LocalTime.parse("19:35:05"));
     }
 }
